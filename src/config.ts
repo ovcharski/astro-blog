@@ -1,13 +1,13 @@
 import type { SocialObjects } from "./types";
 
 export const SITE = {
-  website: "https://astro-paper.pages.dev/",
-  author: "Sat Naing",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
-  ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true,
-  postPerPage: 3,
+  website: "https://ovcharski.com/",
+  author: "Nikola Ovcharski",
+  desc: "A dev blog and portfolio.",
+  title: "Nikola Ovcharski",
+  ogImage: "NikolaOvcharski.jpg",
+  lightAndDarkMode: false,
+  postPerPage: 10,
 };
 
 export const LOGO_IMAGE = {
@@ -20,7 +20,7 @@ export const LOGO_IMAGE = {
 export const SOCIALS: SocialObjects = [
   {
     name: "Github",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://github.com/ovcharski",
     linkTitle: ` ${SITE.title} on Github`,
     active: true,
   },
@@ -28,29 +28,29 @@ export const SOCIALS: SocialObjects = [
     name: "Facebook",
     href: "https://github.com/satnaing/astro-paper",
     linkTitle: `${SITE.title} on Facebook`,
-    active: true,
+    active: false,
   },
   {
     name: "Instagram",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://www.instagram.com/nikolaovcharski/",
     linkTitle: `${SITE.title} on Instagram`,
     active: true,
   },
   {
     name: "LinkedIn",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://bg.linkedin.com/in/nikola-ovcharski-46225718",
     linkTitle: `${SITE.title} on LinkedIn`,
     active: true,
   },
   {
     name: "Mail",
-    href: "mailto:yourmail@gmail.com",
+    href: "nikola@ovcharski.com",
     linkTitle: `Send an email to ${SITE.title}`,
     active: false,
   },
   {
     name: "Twitter",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://twitter.com/ovcharski",
     linkTitle: `${SITE.title} on Twitter`,
     active: false,
   },
