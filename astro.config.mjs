@@ -5,6 +5,7 @@ import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import matomo from '@jop-software/astro-matomo';
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +21,12 @@ export default defineConfig({
     matomo({
       baseUrl: "https://ovcharski.com/analytics/",
       siteId: 11,
+    }),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event.
+      config: {
+        forward: ["dataLayer.push"],
+      },
     }),
   ],
   markdown: {
