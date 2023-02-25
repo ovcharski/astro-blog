@@ -1,7 +1,6 @@
 ---
 import { SITE } from "@config";
 import "../styles/base.css";
-import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -83,9 +82,6 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     }
 
     <script is:inline src="/toggle-theme.js"></script>
-
-    <!-- Google Analytcs -->
-    <GoogleAnalytics />
   </head>
   <body>
     <slot />
