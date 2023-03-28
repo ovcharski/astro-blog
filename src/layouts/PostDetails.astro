@@ -59,3 +59,12 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.svg`, Astro.url.origin)
     @apply my-8;
   }
 </style>
+<script>
+  import mediumZoom from "medium-zoom";
+
+  mediumZoom(".prose img", {
+    margin: 24,
+    background: "rgba(0,0,0,0.9)",
+    scrollOffset: 0,
+  });
+</script>
