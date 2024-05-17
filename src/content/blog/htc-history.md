@@ -9,6 +9,7 @@ tags:
   - Smartphones
   - Android
   - HTC
+  - Windows Mobile
 ogImage: "/images/htc-history.jpg"
 description: Founded in 1997, HTC began as an original design manufacturer (ODM) and original equipment manufacturer (OEM) that designed and manufactured laptop computers.
 ---
@@ -26,6 +27,12 @@ Despite its early success, HTC faced a number of challenges in the 2010s. The co
 In response to these challenges, HTC made a number of changes to its business strategy. The company focused on fewer devices and put more emphasis on design and innovation.
 
 It's worth noting that HTC has faced several challenges in the highly competitive smartphone market, and its prominence has diminished compared to its earlier years. The company has diversified its business, with a focus on virtual reality and other emerging technologies.
+
+## HTC HD2
+
+The 2009 HTC HD2 was the world's first Windows Mobile phone with a capacitive screen, and also packed the world's largest mobile phone display too. It's also the first Windows Mobile phone to use HTC's Sense UI, previously used on the company's Android handsets, bringing with it Facebook integration and direct Twitter access, as well as masking well the operating system beneath it.
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/ipqAbE6ELlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## HTC Wildfire
 
