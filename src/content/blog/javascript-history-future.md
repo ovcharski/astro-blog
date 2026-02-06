@@ -10,8 +10,7 @@ tags:
   - javascript
   - typescript
 ogImage: "images/JavaScript-Frameworks-2023.jpg"
-description:
-  Over all those years, we've seen many JavaScript language features, libraries and frameworks.
+description: Over all those years, we've seen many JavaScript language features, libraries and frameworks.
 ---
 
 ## Video

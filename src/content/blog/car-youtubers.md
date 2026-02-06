@@ -16,7 +16,7 @@ description: There has been a trend in the past few years of former hosts at big
 
 There has been a trend in the past few years of former hosts at big car Youtube channels leaving to start their own ventures. This trend highlights a few key shifts in the car Youtube landscape:
 
-**Desire for Creative Freedom** - Many former hosts, like Alex Kersten from Car Throttle and Edwin from Top Dead Center, mentioned feeling a loss of creative control at their established channels.  Starting their own channels allows them more freedom to pursue the types of content they're passionate about.
+**Desire for Creative Freedom** - Many former hosts, like Alex Kersten from Car Throttle and Edwin from Top Dead Center, mentioned feeling a loss of creative control at their established channels. Starting their own channels allows them more freedom to pursue the types of content they're passionate about.
 
 **Building a Personal Brand** - Youtube allows personalities to connect directly with their audience. Former hosts leverage their existing fanbase to jumpstart their own channels, bringing a loyal following along with them.
 

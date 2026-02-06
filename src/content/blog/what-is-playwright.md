@@ -12,8 +12,7 @@ tags:
   - typescript
   - automation
 ogImage: ""
-description:
-  Playwright is a testing framework that lets you automate Chromium, Firefox, and WebKit with a single API. You can use it to write End-to-End (E2E) and Integration tests
+description: Playwright is a testing framework that lets you automate Chromium, Firefox, and WebKit with a single API. You can use it to write End-to-End (E2E) and Integration tests
 ---
 
 ## Playwright
@@ -39,6 +38,7 @@ Or create new project.
 ```ts
 npm init playwright@latest new-project
 ```
+
 This will create a configuration file, optionally add examples, a GitHub Action workflow and a first test `example.spec.ts`.
 
 The `playwright.config` file is where you can add configuration for Playwright including modifying which browsers you would like to run Playwright on. If you are running tests inside an already existing project then dependencies will be added directly to your `package.json`.
@@ -109,7 +109,7 @@ Playwright supports TypeScript, JavaScript, Python, .NET and Java.
 
 ## Running Playwright on Continuous Integration (CI)
 
-When installing Playwright you are given the option to add a GitHub Actions. This creates a `playwright.yml` file inside a `.github/workflows` folder containing everything you need so that your tests run on each push and pull request into the main  branch.
+When installing Playwright you are given the option to add a GitHub Actions. This creates a `playwright.yml` file inside a `.github/workflows` folder containing everything you need so that your tests run on each push and pull request into the main branch.
 
 ```ts
 name: Playwright Tests
@@ -154,7 +154,6 @@ Community support in these platforms:
 - [Discord](https://aka.ms/playwright/discord)
 - [Twitter](https://twitter.com/playwrightweb)
 
-
 ## Creator
 
 Playwright is created by Microsoft. It has Apache License 2.0.
@@ -168,4 +167,3 @@ Playwright is created by Microsoft. It has Apache License 2.0.
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/LM4yqrOzmFE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 `Let’s take a look at how to generate a test based on your user actions and then write some assertions. Then we can use the pick locator option in VS Code to pick the locator we want and the record at cursor option to record a test from a specific place in our code.`
-
