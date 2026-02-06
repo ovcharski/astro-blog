@@ -13,8 +13,6 @@
 - [x] highly customizable
 - [x] dynamic OG image generation for blog posts
 
-
-
 ## ✅ Lighthouse Score
 
 <p align="center">
@@ -51,6 +49,5 @@ All commands are run from the root of the project, from a terminal:
 | `npm run format`       | Format codes with Prettier                                                                                                       |
 | `npm run sync`         | Generates TypeScript types for all Astro modules. [Learn more](https://docs.astro.build/en/reference/cli-reference/#astro-sync). |
 | `npm run lint`         | Lint with ESLint                                                                                                                 |
-
 
 Theme Made with 🤍 by [Sat Naing](https://satnaing.dev) 👨🏻‍💻

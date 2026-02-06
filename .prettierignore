@@ -4,6 +4,8 @@
 # Except these files & folders
 !/src
 !/public
+# Exclude verification files with malformed HTML
+public/y_key_*.html
 !/.github
 !tsconfig.json
 !astro.config.mjs
