@@ -1,4 +1,7 @@
 ---
+import JsonLD from "@components/JsonLD.astro";
+import { SITE } from "@config";
+
 // Remove current url path and remove trailing slash if exists
 const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 
@@ -10,6 +13,17 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 // replace Posts with Posts (page number)
 breadcrumbList[0] === "posts" &&
   breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
+
+const breadcrumbItems = [
+  { name: "Home", path: "" },
+  ...currentUrlPath
+    .split("/")
+    .slice(1)
+    .map((segment, index, arr) => ({
+      name: segment,
+      path: arr.slice(0, index + 1).join("/"),
+    })),
+];
 ---
 
 <nav class="breadcrumb" aria-label="breadcrumb">
@@ -41,9 +55,22 @@ breadcrumbList[0] === "posts" &&
   </ul>
 </nav>
 
+<JsonLD
+  data={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: new URL(item.path, SITE.website).href,
+    })),
+  }}
+/>
+
 <style>
   .breadcrumb {
-    @apply mx-auto mt-8 mb-1 w-full max-w-3xl px-4;
+    @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
   }
   .breadcrumb ul li {
     @apply inline;

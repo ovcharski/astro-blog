@@ -41,15 +41,23 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        Welcome to my blog. I am an Automation QA Engineer with a strong passion for gadgets from the present and from the past.
+        Welcome to my blog. I am an Automation QA Engineer with a strong passion
+        for gadgets from the present and from the past.
       </p>
       <p>
-        With years of experience in software development, I have acquired a solid understanding of the software development lifecycle and the importance of efficient testing practices. Through my work, I have developed expertise in automation testing, ensuring the quality of software products while reducing time and effort. My interest in AWS and continuous integration stems from my belief in the power of cloud computing and the need for seamless integration throughout the development process.
+        With years of experience in software development, I have acquired a
+        solid understanding of the software development lifecycle and the
+        importance of efficient testing practices. Through my work, I have
+        developed expertise in automation testing, ensuring the quality of
+        software products while reducing time and effort. My interest in AWS and
+        continuous integration stems from my belief in the power of cloud
+        computing and the need for seamless integration throughout the
+        development process.
       </p>
       <p>
         Read the blog posts or check
         <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
           href="/about"
         >
           About
@@ -123,7 +131,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pt-8 pb-6;
+    @apply pb-6 pt-8;
   }
   #hero h1 {
     @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
@@ -141,13 +149,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply mt-4 flex flex-col sm:flex-row sm:items-center;
   }
   .social-links {
-    @apply mr-2 mb-1 whitespace-nowrap sm:mb-0;
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
   #featured,
   #recent-posts {
-    @apply pt-12 pb-6;
+    @apply pb-6 pt-12;
   }
   #featured h2,
   #recent-posts h2 {
