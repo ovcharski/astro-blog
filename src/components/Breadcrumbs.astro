@@ -7,22 +7,23 @@ const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 
 // Get url array from path
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
-const breadcrumbList = currentUrlPath.split("/").slice(1);
+const pathSegments = currentUrlPath.split("/").slice(1);
+const breadcrumbList = [...pathSegments];
 
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
 breadcrumbList[0] === "posts" &&
   breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
 
+// Derive JSON-LD items from transformed breadcrumbList so names match visible UI.
+// When pagination merges two segments into one, offset corrects the path index.
+const segmentOffset = pathSegments.length - breadcrumbList.length;
 const breadcrumbItems = [
   { name: "Home", path: "" },
-  ...currentUrlPath
-    .split("/")
-    .slice(1)
-    .map((segment, index, arr) => ({
-      name: segment,
-      path: arr.slice(0, index + 1).join("/"),
-    })),
+  ...breadcrumbList.map((name, index) => ({
+    name,
+    path: pathSegments.slice(0, index + 1 + segmentOffset).join("/"),
+  })),
 ];
 ---
 
