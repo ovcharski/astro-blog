@@ -4,6 +4,8 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
+import JsonLD from "@components/JsonLD.astro";
+import { SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -21,10 +23,33 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.svg`, Astro.url.origin)
 ---
 
 <Layout title={title} author={author} description={description} ogImage={ogUrl}>
+  <JsonLD
+    data={{
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      description: description,
+      image: ogUrl,
+      datePublished: pubDatetime.toISOString(),
+      author: {
+        "@type": "Person",
+        name: author || SITE.author,
+      },
+      publisher: {
+        "@type": "Person",
+        name: SITE.author,
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": new URL(Astro.url.pathname, SITE.website).href,
+      },
+      keywords: tags.join(", "),
+    }}
+  />
   <Header />
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
-      class="focus-outline mt-8 mb-2 flex hover:opacity-75"
+      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       onclick="history.back()"
     >
       <svg xmlns="http://www.w3.org/2000/svg"

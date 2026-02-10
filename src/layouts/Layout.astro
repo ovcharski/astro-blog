@@ -1,5 +1,6 @@
 ---
 import { SITE } from "@config";
+import JsonLD from "@components/JsonLD.astro";
 import "../styles/base.css";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -28,7 +29,7 @@ const socialImageURL = new URL(
 const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -80,6 +81,20 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
         />
       )
     }
+
+    <JsonLD
+      data={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: SITE.title,
+        url: SITE.website,
+        description: SITE.desc,
+        author: {
+          "@type": "Person",
+          name: SITE.author,
+        },
+      }}
+    />
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>

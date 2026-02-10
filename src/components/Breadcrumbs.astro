@@ -1,15 +1,30 @@
 ---
+import JsonLD from "@components/JsonLD.astro";
+import { SITE } from "@config";
+
 // Remove current url path and remove trailing slash if exists
 const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 
 // Get url array from path
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
-const breadcrumbList = currentUrlPath.split("/").slice(1);
+const pathSegments = currentUrlPath.split("/").slice(1);
+const breadcrumbList = [...pathSegments];
 
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
 breadcrumbList[0] === "posts" &&
   breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
+
+// Derive JSON-LD items from transformed breadcrumbList so names match visible UI.
+// When pagination merges two segments into one, offset corrects the path index.
+const segmentOffset = pathSegments.length - breadcrumbList.length;
+const breadcrumbItems = [
+  { name: "Home", path: "" },
+  ...breadcrumbList.map((name, index) => ({
+    name,
+    path: pathSegments.slice(0, index + 1 + segmentOffset).join("/"),
+  })),
+];
 ---
 
 <nav class="breadcrumb" aria-label="breadcrumb">
@@ -41,9 +56,22 @@ breadcrumbList[0] === "posts" &&
   </ul>
 </nav>
 
+<JsonLD
+  data={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: new URL(item.path, SITE.website).href,
+    })),
+  }}
+/>
+
 <style>
   .breadcrumb {
-    @apply mx-auto mt-8 mb-1 w-full max-w-3xl px-4;
+    @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
   }
   .breadcrumb ul li {
     @apply inline;
