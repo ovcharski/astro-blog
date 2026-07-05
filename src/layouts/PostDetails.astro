@@ -7,6 +7,8 @@ import Datetime from "@components/Datetime";
 import JsonLD from "@components/JsonLD.astro";
 import { SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import slugify from "@utils/slugify";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -16,10 +18,12 @@ const { post } = Astro.props;
 
 const { title, author, description, ogImage, pubDatetime, tags } = post.data;
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 
-const ogUrl = new URL(ogImage ? ogImage : `${title}.svg`, Astro.url.origin)
-  .href;
+const ogUrl = new URL(
+  ogImage ? ogImage : `/posts/${slugify(post.data)}.png`,
+  Astro.url.origin
+).href;
 ---
 
 <Layout title={title} author={author} description={description} ogImage={ogUrl}>

@@ -16,13 +16,14 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.15",
     "@jop-software/astro-matomo": "^1.1.0",
+    "@resvg/resvg-js": "^2.6.2",
     "astro": "^5.16.16",
     "fuse.js": "^7.4.2",
     "github-slugger": "^2.0.0",
     "medium-zoom": "^1.0.8",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
-    "satori": "^0.2.3",
+    "satori": "^0.26.0",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
