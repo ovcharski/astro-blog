@@ -6,8 +6,14 @@ Assessment of the codebase and dependency state as of 2026-07-05.
 `npm update`; fuse.js 7, remark-toc 9, husky 9 and lint-staged 17 bumped;
 `.npmrc` deleted; package.json hygiene fixed (types moved to devDependencies,
 `@types/github-slugger` removed); husky hook migrated to v9 format. Verified
-with build, lint and `astro check`. Remaining: §2 (content layer, OG images,
-Astro 7), §3 Search.tsx / fonts / SOCIALS cleanups, and Tailwind 4.
+with build, lint and `astro check`.
+
+**Status update (2026-07-06, later):** Stage 2 is done — §2.2 Content Layer
+migration (`src/content.config.ts` with glob loader, `render(post)`) and §2.1
+PNG OG images (satori 0.26 + @resvg/resvg-js, slug-keyed `/posts/[slug].png`
+route with proper Content-Type). Verified: build green, generated image is a
+valid 1200×630 PNG, og:image/twitter:image meta point to it. Remaining: §2.3
+Astro 7 upgrade, §3 Search.tsx / fonts / SOCIALS cleanups, and Tailwind 4.
 
 ## 1. Dependency status
 

@@ -1,5 +1,6 @@
 import satori from "satori";
 import type { SatoriOptions } from "satori";
+import { Resvg } from "@resvg/resvg-js";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { SITE } from "@config";
@@ -125,7 +126,9 @@ const options: SatoriOptions = {
   ],
 };
 
-const generateOgImage = async (mytext = SITE.title) =>
-  await satori(ogImage(mytext), options);
+const generateOgImage = async (mytext = SITE.title) => {
+  const svg = await satori(ogImage(mytext), options);
+  return new Resvg(svg).render().asPng();
+};
 
 export default generateOgImage;
