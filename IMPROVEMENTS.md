@@ -12,8 +12,18 @@ with build, lint and `astro check`.
 migration (`src/content.config.ts` with glob loader, `render(post)`) and §2.1
 PNG OG images (satori 0.26 + @resvg/resvg-js, slug-keyed `/posts/[slug].png`
 route with proper Content-Type). Verified: build green, generated image is a
-valid 1200×630 PNG, og:image/twitter:image meta point to it. Remaining: §2.3
-Astro 7 upgrade, §3 Search.tsx / fonts / SOCIALS cleanups, and Tailwind 4.
+valid 1200×630 PNG, og:image/twitter:image meta point to it.
+
+**Status update (2026-07-06, stage 3):** §2.3 done — Astro 5.18 → 7.0,
+@astrojs/react 4 → 6, eslint 10 (+ plugin/parser 2.x), typescript 6,
+prettier-plugin-tailwindcss 0.8. Deprecated @astrojs/tailwind replaced with
+plain PostCSS config (tailwindcss + autoprefixer). remark-toc/remark-collapse
+kept via @astrojs/markdown-remark's `unified()` processor; shikiConfig stays
+top-level. `compressHTML: true` set to keep pre-v7 whitespace behavior.
+`npm audit`: 0 vulnerabilities. Verified: build, astro check, lint,
+format:check, TOC/collapse + one-dark-pro highlighting + OG PNG in dist.
+Remaining: §3 Search.tsx / fonts / SOCIALS cleanups, and Tailwind 4
+(now the only outdated package).
 
 ## 1. Dependency status
 
