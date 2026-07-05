@@ -22,8 +22,11 @@ kept via @astrojs/markdown-remark's `unified()` processor; shikiConfig stays
 top-level. `compressHTML: true` set to keep pre-v7 whitespace behavior.
 `npm audit`: 0 vulnerabilities. Verified: build, astro check, lint,
 format:check, TOC/collapse + one-dark-pro highlighting + OG PNG in dist.
-Remaining: §3 Search.tsx / fonts / SOCIALS cleanups, and Tailwind 4
-(now the only outdated package).
+**Status update (2026-07-06, stage 4):** §3 done — Fuse index memoized and
+history.replaceState in Search.tsx; IBM Plex Mono self-hosted via
+@fontsource/ibm-plex-mono (Google Fonts CDN links removed, woff2 bundled at
+build); 15 placeholder SOCIALS entries pruned. Remaining: Tailwind 4
+(optional; the only outdated package).
 
 ## 1. Dependency status
 
