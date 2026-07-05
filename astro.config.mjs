@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import { unified } from "@astrojs/markdown-remark";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
@@ -9,12 +9,9 @@ import matomo from "@jop-software/astro-matomo";
 // https://astro.build/config
 export default defineConfig({
   site: "https://ovcharski.com/",
+  // Keep the pre-v7 whitespace behavior for inline elements in templates
+  compressHTML: true,
   integrations: [
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
     react(),
     sitemap(),
     matomo({
@@ -23,19 +20,20 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
-        },
+    processor: unified({
+      remarkPlugins: [
+        remarkToc,
+        [
+          remarkCollapse,
+          {
+            test: "Table of contents",
+          },
+        ],
       ],
-    ],
+    }),
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
     },
-    extendDefaultPlugins: true,
   },
 });
