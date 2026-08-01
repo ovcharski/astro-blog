@@ -20,9 +20,14 @@ export async function getStaticPaths() {
     props: { post },
   }));
 
-  const pagePaths = getPageNumbers(posts.length).map(pageNum => ({
-    params: { slug: String(pageNum) },
-  }));
+  // Page 1 is already served by /posts, so generating /posts/1 would publish
+  // the same list under a second self-canonicalising URL and put both in the
+  // sitemap. Pagination links back to /posts rather than /posts/1 already.
+  const pagePaths = getPageNumbers(posts.length)
+    .filter(pageNum => pageNum !== 1)
+    .map(pageNum => ({
+      params: { slug: String(pageNum) },
+    }));
 
   return [...postResult, ...pagePaths];
 }
