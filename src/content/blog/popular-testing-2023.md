@@ -26,8 +26,8 @@ It should also be taken as a snapshot of a specific subset of developers, and is
 
 Top 13 results in [Testing category](https://2022.stateofjs.com/en-US/libraries/testing/):
 
-1. [Vitest]() - a fast Vite-native unit testing framework
-2. [Testing Library]() - family of libraries for a very light-weight solution for testing
+1. [Vitest](<>) - a fast Vite-native unit testing framework
+2. [Testing Library](<>) - family of libraries for a very light-weight solution for testing
 3. [Playwright](https://playwright.dev/) - reliable end-to-end testing for modern web apps
 4. [Jest](https://jestjs.io/) - testing framework designed to ensure correctness of any JavaScript codebase
 5. [Storybook](https://storybook.js.org/) - frontend workshop for building UI components and pages in isolation. Thousands of teams use it for UI development, testing, and documentation.
