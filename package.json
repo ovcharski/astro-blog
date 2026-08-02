@@ -11,7 +11,9 @@
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "prepare": "husky",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.1",
@@ -48,10 +50,11 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   },
   "lint-staged": {
-    "*.{js,mjs,cjs,ts,tsx,astro,css,md,json,yml,yaml,html}": [
+    "*.{js,mjs,cjs,ts,mts,cts,tsx,astro,css,md,json,yml,yaml,html}": [
       "prettier --write"
     ]
   }
