@@ -43,11 +43,9 @@ const tagPosts = getPostsByTag(posts, tag);
     pageDesc={`All the articles with the tag "${tag}".`}
   >
     <ul>
-      {
-        tagPosts.map(({ data }) => (
-          <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
-        ))
-      }
+      {tagPosts.map(({ data }) => (
+        <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
+      ))}
     </ul>
   </Main>
   <Footer />
