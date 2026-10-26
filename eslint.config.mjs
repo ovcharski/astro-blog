@@ -25,4 +25,19 @@ export default [
       },
     },
   },
+  {
+    files: ["**/*.{ts,tsx,mts,cts}"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+      },
+    },
+    rules: {
+      // TypeScript already checks these, and the core rules misread type-only
+      // names (e.g. the global React namespace) as undefined or unused.
+      "no-undef": "off",
+      "no-unused-vars": "off",
+    },
+  },
 ];

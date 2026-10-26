@@ -10,7 +10,6 @@ tags:
   - Android
   - HTC
   - Windows Mobile
-ogImage: "/images/htc-history.jpg"
 description: Founded in 1997, HTC began as an original design manufacturer (ODM) and original equipment manufacturer (OEM) that designed and manufactured laptop computers.
 ---
 

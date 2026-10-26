@@ -8,7 +8,6 @@ draft: false
 tags:
   - YouTube
   - Cars
-ogImage: "/images/car-youtubers.jpg"
 description: There has been a trend in the past few years of former hosts at big car Youtube channels leaving to start their own ventures. Car Throttle and Donut Media lost some of their hosts.
 ---
 
