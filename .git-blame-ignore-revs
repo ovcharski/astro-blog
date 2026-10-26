@@ -1,0 +1,6 @@
+# Formatting-only commits for `git blame` to skip.
+# GitHub applies this file automatically. Locally, run once:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# style: reformat .astro files with prettier-plugin-astro 1.x
+b323096f08daeb5ce8a5694bcc1a0752e68185b0
