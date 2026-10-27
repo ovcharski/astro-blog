@@ -13,7 +13,9 @@ export default defineConfig({
   compressHTML: true,
   integrations: [
     react(),
-    sitemap(),
+    sitemap({
+      filter: page => !page.endsWith("/search/"),
+    }),
     matomo({
       baseUrl: "https://ovcharski.com/analytics/",
       siteId: 11,

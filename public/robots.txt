@@ -1,5 +1,4 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
 User-agent: *
 Allow: /
+
+Sitemap: https://ovcharski.com/sitemap-index.xml
