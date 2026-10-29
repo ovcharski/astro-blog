@@ -13,14 +13,6 @@
 - [x] highly customizable
 - [x] dynamic OG image generation for blog posts
 
-## ✅ Lighthouse Score
-
-<p align="center">
-  <a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fovcharski.com%2F&form_factor=desktop">
-    <img width="710" alt="AstroPaper Lighthouse Score" src="AstroPaper-lighthouse-score.svg">
-  <a>
-</p>
-
 ## 💻 Tech Stack
 
 **Main Framework** - [Astro](https://astro.build/)  
@@ -31,7 +23,7 @@
 **Fuzzy Search** - [FuseJS](https://fusejs.io/)  
 **Icons** - [Boxicons](https://boxicons.com/) | [Tablers](https://tabler-icons.io/)  
 **Code Formatting** - [Prettier](https://prettier.io/)  
-**Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)  
+**Deployment** - [Hostinger](https://www.hostinger.com/)  
 **Illustration in About Page** - [https://freesvgillustration.com](https://freesvgillustration.com/)  
 **Linting** - [ESLint](https://eslint.org)
 
