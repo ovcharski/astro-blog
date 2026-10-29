@@ -70,7 +70,8 @@ const next = pageNum < totalPages ? "" : "disabled";
   .pagination-wrapper {
     @apply mt-auto mb-8 flex justify-center;
   }
-  .disabled {
+  /* .disabled lands on LinkButton's <a>, which only carries LinkButton's scope */
+  .pagination-wrapper :global(.disabled) {
     @apply pointer-events-none opacity-50 select-none group-hover:fill-skin-base hover:text-skin-base;
   }
   .disabled-svg {

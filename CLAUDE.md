@@ -67,7 +67,7 @@ npm run sync         # Generate TypeScript types for Astro modules
 ### Theming System
 
 The site uses a custom CSS variable-based theming system in TailwindCSS, all in `src/styles/base.css`:
-- Per-theme colors are RGB triplet CSS variables (`--color-text-base`, `--color-accent`, `--color-fill`, etc.) under `html[data-theme=...]`
+- Per-theme colors are full-color CSS variables (`--skin-text-base`, `--skin-accent`, `--skin-fill`, etc.) under `html[data-theme=...]`, kept out of the `--color-*` namespace that Tailwind 4 reserves for theme colors
 - `@theme inline` maps them to `skin` utilities using per-utility namespaces (`--text-color-skin-*`, `--background-color-skin-*`, `--border-color-skin-*`, `--outline-color-skin-*`, `--fill-skin-*`), because the same skin name means different colors per utility (e.g. `bg-skin-fill` vs `border-skin-fill`)
 - Opacity uses modifiers (`bg-skin-card/75`); the v3 `*-opacity-*` utilities no longer exist
 - Astro components that use `@apply` in `<style>` need `@reference "../styles/base.css";` at the top of the block

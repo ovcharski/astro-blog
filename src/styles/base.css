@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../");
 @plugin "@tailwindcss/typography";
 
 @theme {
@@ -9,29 +9,30 @@
 }
 
 /*
- * Skin colors. The --color-* triplets below are set per theme, and the same
- * skin name maps to a different triplet depending on the utility (e.g.
+ * Skin colors. The --skin-* colors below are set per theme, and the same
+ * skin name maps to a different color depending on the utility (e.g.
  * bg-skin-fill vs border-skin-fill), so each utility gets its own namespace.
+ * They stay out of --color-*, which Tailwind 4 reserves for theme colors.
  */
 @theme inline {
-  --text-color-skin-base: rgb(var(--color-text-base));
-  --text-color-skin-accent: rgb(var(--color-accent));
-  --text-color-skin-inverted: rgb(var(--color-fill));
+  --text-color-skin-base: var(--skin-text-base);
+  --text-color-skin-accent: var(--skin-accent);
+  --text-color-skin-inverted: var(--skin-fill);
 
-  --background-color-skin-fill: rgb(var(--color-fill));
-  --background-color-skin-accent: rgb(var(--color-accent));
-  --background-color-skin-inverted: rgb(var(--color-text-base));
-  --background-color-skin-card: rgb(var(--color-card));
-  --background-color-skin-card-muted: rgb(var(--color-card-muted));
+  --background-color-skin-fill: var(--skin-fill);
+  --background-color-skin-accent: var(--skin-accent);
+  --background-color-skin-inverted: var(--skin-text-base);
+  --background-color-skin-card: var(--skin-card);
+  --background-color-skin-card-muted: var(--skin-card-muted);
 
-  --outline-color-skin-fill: rgb(var(--color-accent));
+  --outline-color-skin-fill: var(--skin-accent);
 
-  --border-color-skin-line: rgb(var(--color-border));
-  --border-color-skin-fill: rgb(var(--color-text-base));
-  --border-color-skin-accent: rgb(var(--color-accent));
+  --border-color-skin-line: var(--skin-border);
+  --border-color-skin-fill: var(--skin-text-base);
+  --border-color-skin-accent: var(--skin-accent);
 
-  --fill-skin-base: rgb(var(--color-text-base));
-  --fill-skin-accent: rgb(var(--color-accent));
+  --fill-skin-base: var(--skin-text-base);
+  --fill-skin-accent: var(--skin-accent);
 }
 
 @layer base {
@@ -42,20 +43,20 @@
   }
   :root,
   html[data-theme="light"] {
-    --color-fill: 251, 254, 251;
-    --color-text-base: 40, 39, 40;
-    --color-accent: 0, 108, 172;
-    --color-card: 230, 230, 230;
-    --color-card-muted: 205, 205, 205;
-    --color-border: 236, 233, 233;
+    --skin-fill: rgb(251 254 251);
+    --skin-text-base: rgb(40 39 40);
+    --skin-accent: rgb(0 108 172);
+    --skin-card: rgb(230 230 230);
+    --skin-card-muted: rgb(205 205 205);
+    --skin-border: rgb(236 233 233);
   }
   html[data-theme="dark"] {
-    --color-fill: 33, 39, 55;
-    --color-text-base: 234, 237, 243;
-    --color-accent: 255, 107, 1;
-    --color-card: 52, 63, 96;
-    --color-card-muted: 138, 51, 2;
-    --color-border: 171, 75, 8;
+    --skin-fill: rgb(33 39 55);
+    --skin-text-base: rgb(234 237 243);
+    --skin-accent: rgb(255 107 1);
+    --skin-card: rgb(52 63 96);
+    --skin-card-muted: rgb(138 51 2);
+    --skin-border: rgb(171 75 8);
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -82,15 +83,10 @@
     @apply inline-block h-6 w-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110;
   }
   .prose {
-    @apply prose-headings:!mb-3 prose-headings:!text-skin-base prose-h3:italic prose-p:!text-skin-base prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8 hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent/50 prose-blockquote:opacity-80 prose-figcaption:!text-skin-base prose-figcaption:opacity-70 prose-strong:!text-skin-base prose-code:rounded prose-code:bg-skin-card/75 prose-code:p-1 prose-code:!text-skin-base prose-code:before:!content-[''] prose-code:after:!content-[''] prose-pre:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:!mt-2 prose-img:border-2 prose-img:border-skin-line prose-hr:!border-skin-line;
+    @apply prose-headings:!mb-3 prose-headings:!text-skin-base prose-h3:italic prose-p:!text-skin-base prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8 prose-blockquote:!border-l-skin-accent/50 prose-blockquote:opacity-80 prose-figcaption:!text-skin-base prose-figcaption:opacity-70 prose-strong:!text-skin-base prose-code:rounded prose-code:bg-skin-card/75 prose-code:p-1 prose-code:!text-skin-base prose-code:before:!content-[''] prose-code:after:!content-[''] prose-pre:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:!mt-2 prose-img:border-2 prose-img:border-skin-line prose-hr:!border-skin-line;
   }
   .prose a {
     @apply hover:!text-skin-accent;
-  }
-  .prose thead th:first-child,
-  tbody td:first-child,
-  tfoot td:first-child {
-    padding-left: 0.5714286em;
   }
   .prose h2#table-of-contents {
     @apply mb-2;
@@ -129,6 +125,16 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-skin-card-muted;
   }
+}
+
+/*
+ * Unlayered so it beats the typography plugin's padding-inline-start: 0,
+ * which Tailwind 4 emits in @layer utilities.
+ */
+.prose thead th:first-child,
+tbody td:first-child,
+tfoot td:first-child {
+  padding-left: 0.5714286em;
 }
 
 @utility display-none {
