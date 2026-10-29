@@ -1,7 +1,7 @@
 ---
 author: Nikola Ovcharski
 pubDatetime: 2023-01-24T15:22:00Z
-title: How to change the WiFi network or password on a Flightradar24 Pi24 client
+title: "How to Change WiFi Settings on a Flightradar24 Pi24 Client"
 postSlug: flightradar24-pi24-change-wifi
 featured: false
 draft: false
@@ -33,7 +33,7 @@ You can hook up the Raspberry Pi to a display with a HDMI cable or you can attac
 
 You can connect to Raspberry Pi from your PC via SSH (Secure Shell). [PuTTY](https://putty.org/) is a popular and free SSH client for Windows. All you need is the local IP address of the Raspberry. But if you already changed the WiFi network, how can you connect to the Pi? With ethernet. You need to connect the Pi via cable and find the local IP address. [Angry IP Scanner](https://angryip.org/) for Windows/Mac or one of the many apps for Android and iOS can help with that.
 
-![Devices](/images/RPi/Devices.jpg)
+![Router app device list showing the Raspberry Pi at 192.168.100.12 on the local network](../../assets/images/RPi/Devices.jpg)
 
 ```js
 ssh pi@192.168.0.12
@@ -46,7 +46,7 @@ Login: pi;
 Password: raspberry;
 ```
 
-![Flightradar24 Pi24](/images/RPi/FR24-Pi24.jpg)
+![SSH session logged in to the Flightradar24 Pi24 Raspberry Pi, showing the Flightradar24 ASCII banner](../../assets/images/RPi/FR24-Pi24.jpg)
 
 In the file `wpa_supplicant.conf` is stored the data for WiFi networks. The file is located in `/etc/wpa_supplicant/` on the Pi. You can edit it with:
 
@@ -54,7 +54,7 @@ In the file `wpa_supplicant.conf` is stored the data for WiFi networks. The file
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
-![Flightradar24 Pi24](/images/RPi/FR24-Pi24-SSID.jpg)
+![wpa_supplicant.conf open in nano on the Pi24, with a network block for each WiFi SSID and password](../../assets/images/RPi/FR24-Pi24-SSID.jpg)
 
 `ssid` - your router's WiFi network name.
 

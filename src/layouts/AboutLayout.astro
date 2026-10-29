@@ -1,6 +1,7 @@
 ---
-import { SITE } from "@config";
+import { SITE, SOCIALS } from "@config";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
+import JsonLD from "@components/JsonLD.astro";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import Layout from "./Layout.astro";
@@ -13,9 +14,25 @@ export interface Props {
 }
 
 const { frontmatter } = Astro.props;
+
+const sameAs = SOCIALS.filter(({ name }) =>
+  ["Github", "LinkedIn"].includes(name)
+).map(({ href }) => href);
 ---
 
-<Layout title={`${frontmatter.title} | ${SITE.title}`}>
+<Layout
+  title={`${frontmatter.title} | ${SITE.title}`}
+  description={frontmatter.description}
+>
+  <JsonLD
+    data={{
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: SITE.author,
+      url: SITE.website,
+      sameAs,
+    }}
+  />
   <Header activeNav="about" />
   <Breadcrumbs />
   <main id="main-content">

@@ -1,0 +1,18 @@
+AddHandler ${application/x-httpd-ovcharsk-php82} .php .php5 .phtml .php7 .php8
+
+ErrorDocument 404 /404.html
+
+RewriteEngine on
+Redirect 301 /2012/09/sinya-i-zelena-zona-v-sofiya-karta/ https://kakvonauchih.com/karta-na-sinya-i-zelena-zona-v-sofiya/
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^ovcharski\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.ovcharski\.com$
+RewriteRule ^/?$ "https\:\/\/ovcharski\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^ovcharski\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.ovcharski\.com$
+RewriteRule ^spa\-expert\/$ "https\:\/\/www\.youtube\.com\/watch\?v\=bpOSxM0rNPM" [R=301,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit

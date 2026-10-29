@@ -15,7 +15,7 @@ const { name, size = "sm" } = Astro.props;
   }`}
 >
   <a
-    href={`/tags/${slugifyStr(name)}`}
+    href={`/tags/${slugifyStr(name)}/`}
     class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
   >
     <svg

@@ -34,9 +34,11 @@ const { tag } = Astro.props;
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 
 const tagPosts = getPostsByTag(posts, tag);
+
+const description = `Posts tagged "${tag}" on ${SITE.author}'s dev blog: notes, how-tos and casual write-ups about ${tag}, newest first, all in one place.`;
 ---
 
-<Layout title={`Tag:${tag} | ${SITE.title}`}>
+<Layout title={`Tag:${tag} | ${SITE.title}`} description={description} noindex>
   <Header activeNav="tags" />
   <Main
     pageTitle={`Tag:${tag}`}
@@ -44,7 +46,7 @@ const tagPosts = getPostsByTag(posts, tag);
   >
     <ul>
       {tagPosts.map(({ data }) => (
-        <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
+        <Card href={`/posts/${slugify(data)}/`} frontmatter={data} />
       ))}
     </ul>
   </Main>

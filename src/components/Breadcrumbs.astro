@@ -46,7 +46,7 @@ const breadcrumbItems = [
         </li>
       ) : (
         <li>
-          <a href={`/${breadcrumb}`}>{breadcrumb}</a>
+          <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
           <span aria-hidden="true">&#62;</span>
         </li>
       )
@@ -62,7 +62,7 @@ const breadcrumbItems = [
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: new URL(item.path, SITE.website).href,
+      item: new URL(item.path ? `${item.path}/` : "", SITE.website).href,
     })),
   }}
 />

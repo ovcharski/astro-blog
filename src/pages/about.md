@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/AboutLayout.astro
 title: "About"
+description: "About Nikola Ovcharski: QA automation engineer, former gadget reviewer and keen runner who uses this blog for side projects and homelab experiments."
 ---
 
 Hi, I'm Nikola. I break software for a living, professionally and on purpose.

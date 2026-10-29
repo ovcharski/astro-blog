@@ -1,7 +1,7 @@
 ---
 author: Nikola Ovcharski
 pubDatetime: 2024-01-20T14:12:00Z
-title: The history of HTC
+title: "The History of HTC: From ODM to Smartphone Pioneer"
 postSlug: htc-history
 featured: false
 draft: false

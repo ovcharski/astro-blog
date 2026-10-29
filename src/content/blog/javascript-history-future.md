@@ -10,7 +10,7 @@ tags:
   - javascript
   - typescript
 ogImage: "images/JavaScript-Frameworks-2023.jpg"
-description: Over all those years, we've seen many JavaScript language features, libraries and frameworks.
+description: "From plain JavaScript and jQuery to AngularJS, React, Angular and Vue: a quick look back at JS frameworks, where they stand today and where they are heading."
 ---
 
 ## Video
