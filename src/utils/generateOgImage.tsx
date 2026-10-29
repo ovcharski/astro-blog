@@ -43,6 +43,8 @@ const ogImage = (text: string) => {
 
       <div
         style={{
+          // keeps this card painted above the absolutely positioned shadow card
+          position: "relative",
           border: "4px solid #000",
           background: "#fefbfb",
           borderRadius: "4px",
@@ -67,6 +69,7 @@ const ogImage = (text: string) => {
             style={{
               fontSize: 72,
               fontWeight: "bold",
+              margin: 0,
               maxHeight: "84%",
               overflow: "hidden",
             }}
@@ -83,14 +86,7 @@ const ogImage = (text: string) => {
             }}
           >
             <span>
-              by{" "}
-              <span
-                style={{
-                  color: "transparent",
-                }}
-              >
-                "
-              </span>
+              by&nbsp;
               <span style={{ overflow: "hidden", fontWeight: "bold" }}>
                 {SITE.author}
               </span>
