@@ -24,7 +24,7 @@ npm run sync         # Generate TypeScript types for Astro modules
 
 ### Tech Stack
 - **Framework**: Astro 7 with static site generation
-- **Styling**: TailwindCSS with custom theming system
+- **Styling**: TailwindCSS 4 (CSS-first config, no `tailwind.config`) with custom theming system
 - **UI Components**: React (for interactive components like search)
 - **Content**: Type-safe markdown with Zod schemas
 - **Deployment**: Hostinger (the server `.htaccess` is managed in hPanel, not in this repo)
@@ -66,10 +66,11 @@ npm run sync         # Generate TypeScript types for Astro modules
 
 ### Theming System
 
-The site uses a custom CSS variable-based theming system in TailwindCSS:
-- Colors are defined using CSS variables (`--color-text-base`, `--color-accent`, `--color-fill`, etc.)
-- Tailwind extends with `skin` utilities (e.g., `text-skin-base`, `bg-skin-fill`)
-- Utility function `withOpacity()` in `tailwind.config.cjs` enables opacity modifiers
+The site uses a custom CSS variable-based theming system in TailwindCSS, all in `src/styles/base.css`:
+- Per-theme colors are RGB triplet CSS variables (`--color-text-base`, `--color-accent`, `--color-fill`, etc.) under `html[data-theme=...]`
+- `@theme inline` maps them to `skin` utilities using per-utility namespaces (`--text-color-skin-*`, `--background-color-skin-*`, `--border-color-skin-*`, `--outline-color-skin-*`, `--fill-skin-*`), because the same skin name means different colors per utility (e.g. `bg-skin-fill` vs `border-skin-fill`)
+- Opacity uses modifiers (`bg-skin-card/75`); the v3 `*-opacity-*` utilities no longer exist
+- Astro components that use `@apply` in `<style>` need `@reference "../styles/base.css";` at the top of the block
 
 ### Key Utilities (`src/utils/`)
 
@@ -88,7 +89,7 @@ The site uses a custom CSS variable-based theming system in TailwindCSS:
 - `SOCIALS` - Array of social media links (filtered by `active` flag)
 
 **Astro Config** (`astro.config.mjs`):
-- Integrations: React, Sitemap, Matomo analytics (Tailwind runs via `postcss.config.mjs`, not an integration)
+- Integrations: React, Sitemap, Matomo analytics (Tailwind runs as the `@tailwindcss/vite` plugin under `vite.plugins`, not an integration)
 - Markdown: remark-toc and remark-collapse via `@astrojs/markdown-remark`'s `unified()` processor (set as `markdown.processor`, since Astro 7 no longer defaults to remark)
 - Syntax highlighting: one-dark-pro theme
 

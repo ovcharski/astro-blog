@@ -1,24 +1,23 @@
 # Improvements
 
 Codebase assessment done on 2026-07-05; all stages below were implemented and
-merged on 2026-07-06. Kept as a record plus the one remaining optional item.
+merged on 2026-07-06. Kept as a record.
 
-## Remaining
+## Completed (2026-10-29)
 
-### Tailwind 3 → 4 (optional)
+**Remaining majors**
 
-The only outdated package. A real migration, worth its own branch:
+- @astrojs/react 6 → 7 (PR #27), adds the `oxc-transform-react` peer
+- satori 0.26 → 0.63 (PR #28), OG template fixes for the new stacking and
+  `<p>` margin behavior
+- Tailwind 3 → 4: `@tailwindcss/vite` replaces PostCSS + autoprefixer;
+  `tailwind.config.cjs` moved into `@theme` blocks in `src/styles/base.css`;
+  `*-opacity-*` utilities became `/NN` modifiers; `@reference` added to
+  components that `@apply` in `<style>`. Before/after screenshots of 10
+  pages × light/dark × desktop/mobile were pixel-identical
 
-- Replace PostCSS setup with `@tailwindcss/vite`
-- Move config CSS-first: `tailwind.config.cjs` (including the `withOpacity()`
-  helper and `skin` utilities) reworks into `@theme` CSS variables
-- `@tailwind base/components/utilities` directives in `src/styles/base.css`
-  become `@import "tailwindcss"`
-- Check `@tailwindcss/typography` and `prettier-plugin-tailwindcss` behavior
-  after the switch
-
-No forcing function: Tailwind 3 works fine on Astro 7 and has no security
-issues.
+Still open: TypeScript 7, blocked until `@astrojs/check` and
+`typescript-eslint` support it.
 
 ## Completed (2026-07-06)
 
