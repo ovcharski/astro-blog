@@ -27,7 +27,7 @@ npm run sync         # Generate TypeScript types for Astro modules
 - **Styling**: TailwindCSS with custom theming system
 - **UI Components**: React (for interactive components like search)
 - **Content**: Type-safe markdown with Zod schemas
-- **Deployment**: Cloudflare Pages
+- **Deployment**: Hostinger (the server `.htaccess` is managed in hPanel, not in this repo)
 
 ### Content Architecture
 
