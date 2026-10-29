@@ -23,8 +23,10 @@ const inPublic = (src: string) => path.join(PUBLIC_DIR, src);
 
 // In a post body, root-relative paths are served from public/ and relative
 // ones are optimized assets resolved against the post file, as Astro does.
-const inBody = (src: string) =>
-  src.startsWith("/") ? inPublic(src) : path.join(BLOG_DIR, src);
+const inBody = (file: string) => (src: string) =>
+  src.startsWith("/")
+    ? inPublic(src)
+    : path.join(BLOG_DIR, path.dirname(file), src);
 
 describe("blog content", () => {
   it("finds the posts", () => {
@@ -42,7 +44,9 @@ describe("blog content", () => {
   it.each(posts.map(post => [post.file, post]))(
     "%s: every local image in the body exists",
     (_, post) => {
-      expect(missingFiles(bodyImages(post.body), inBody)).toEqual([]);
+      expect(missingFiles(bodyImages(post.body), inBody(post.file))).toEqual(
+        []
+      );
     }
   );
 });

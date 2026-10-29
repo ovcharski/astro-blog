@@ -1,25 +1,26 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
 import Card from "@components/Card";
-import getSortedPosts from "@utils/getSortedPosts";
 import slugify, { slugifyAll } from "@utils/slugify";
 
 export interface Props {
   post: CollectionEntry<"blog">;
+  // Output of getSortedPosts, which the post route already has
+  sortedPosts: CollectionEntry<"blog">[];
   limit?: number;
 }
 
-const { post, limit = 3 } = Astro.props;
+const { post, sortedPosts, limit = 3 } = Astro.props;
 
 const currentTags = slugifyAll(post.data.tags);
 
 // Newest first, so posts with the same number of shared tags keep date order
-const candidates = getSortedPosts(await getCollection("blog"))
+const candidates = sortedPosts
   .filter(({ id }) => id !== post.id)
   .map(candidate => ({
     candidate,
-    shared: slugifyAll(candidate.data.tags).filter(tag =>
+    // Tags like "React" and "react" share a slug, so count it once
+    shared: [...new Set(slugifyAll(candidate.data.tags))].filter(tag =>
       currentTags.includes(tag)
     ).length,
   }));
@@ -32,13 +33,14 @@ const related = candidates
 const picks = [...related, ...candidates.filter(({ shared }) => shared === 0)]
   .slice(0, limit)
   .map(({ candidate }) => candidate);
+
+// Once the list is topped up with unrelated posts it's no longer "related"
+const heading = related.length >= picks.length ? "Related posts" : "More posts";
 ---
 
 {picks.length > 0 && (
   <section class="related-posts" aria-labelledby="related-posts-heading">
-    <h2 id="related-posts-heading">
-      {related.length > 0 ? "Related posts" : "More posts"}
-    </h2>
+    <h2 id="related-posts-heading">{heading}</h2>
     <ul>
       {picks.map(({ data }) => (
         <Card

@@ -15,8 +15,9 @@ export interface Props {
 
 const { frontmatter } = Astro.props;
 
-const sameAs = SOCIALS.filter(({ name }) =>
-  ["Github", "LinkedIn"].includes(name)
+// Profiles shown on the site; mail isn't a profile URL, so it stays out
+const sameAs = SOCIALS.filter(
+  ({ active, href }) => active && /^https?:\/\//.test(href)
 ).map(({ href }) => href);
 ---
 

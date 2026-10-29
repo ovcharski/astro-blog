@@ -1,5 +1,4 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
@@ -8,41 +7,51 @@ import Footer from "@components/Footer.astro";
 import Card from "@components/Card";
 import getUniqueTags from "@utils/getUniqueTags";
 import getPostsByTag from "@utils/getPostsByTag";
-import slugify from "@utils/slugify";
+import slugify, { slugifyStr } from "@utils/slugify";
 import { SITE } from "@config";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  // Slug used in the URL, e.g. "raspberry-pi"
   tag: string;
+  // Tag as written in the posts, e.g. "Raspberry Pi"
+  tagName: string;
 }
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
 
   const tags = getUniqueTags(posts);
+  const tagNames = posts
+    .filter(({ data }) => !data.draft)
+    .flatMap(({ data }) => data.tags);
 
   return tags.map(tag => {
+    const tagName = tagNames.find(name => slugifyStr(name) === tag) ?? tag;
     return {
       params: { tag },
-      props: { tag },
+      props: { tag, tagName },
     };
   });
 }
 
-const { tag } = Astro.props;
+const { tag, tagName } = Astro.props;
 
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 
 const tagPosts = getPostsByTag(posts, tag);
 
-const description = `Posts tagged "${tag}" on ${SITE.author}'s dev blog: notes, how-tos and casual write-ups about ${tag}, newest first, all in one place.`;
+const description = `Posts tagged "${tagName}" on ${SITE.author}'s dev blog: notes, how-tos and casual write-ups about ${tagName}, newest first, all in one place.`;
 ---
 
-<Layout title={`Tag:${tag} | ${SITE.title}`} description={description} noindex>
+<Layout
+  title={`Tag:${tagName} | ${SITE.title}`}
+  description={description}
+  noindex
+>
   <Header activeNav="tags" />
   <Main
-    pageTitle={`Tag:${tag}`}
-    pageDesc={`All the articles with the tag "${tag}".`}
+    pageTitle={`Tag:${tagName}`}
+    pageDesc={`All the articles with the tag "${tagName}".`}
   >
     <ul>
       {tagPosts.map(({ data }) => (
