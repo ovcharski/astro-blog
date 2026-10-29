@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import Card from "@components/Card";
+import getSortedPosts from "@utils/getSortedPosts";
+import slugify, { slugifyAll } from "@utils/slugify";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+  limit?: number;
+}
+
+const { post, limit = 3 } = Astro.props;
+
+const currentTags = slugifyAll(post.data.tags);
+
+// Newest first, so posts with the same number of shared tags keep date order
+const candidates = getSortedPosts(await getCollection("blog"))
+  .filter(({ id }) => id !== post.id)
+  .map(candidate => ({
+    candidate,
+    shared: slugifyAll(candidate.data.tags).filter(tag =>
+      currentTags.includes(tag)
+    ).length,
+  }));
+
+const related = candidates
+  .filter(({ shared }) => shared > 0)
+  .sort((a, b) => b.shared - a.shared);
+
+// Most posts share no tags, so top up with the latest posts
+const picks = [...related, ...candidates.filter(({ shared }) => shared === 0)]
+  .slice(0, limit)
+  .map(({ candidate }) => candidate);
+---
+
+{picks.length > 0 && (
+  <section class="related-posts" aria-labelledby="related-posts-heading">
+    <h2 id="related-posts-heading">
+      {related.length > 0 ? "Related posts" : "More posts"}
+    </h2>
+    <ul>
+      {picks.map(({ data }) => (
+        <Card
+          href={`/posts/${slugify(data)}/`}
+          frontmatter={data}
+          secHeading={false}
+        />
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .related-posts {
+    @apply mt-8;
+  }
+  .related-posts h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+</style>

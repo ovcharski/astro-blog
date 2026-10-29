@@ -1,14 +1,14 @@
 ---
 author: Nikola Ovcharski
 pubDatetime: 2024-06-25T14:12:00Z
-title: Why Popular Car YouTube Host Are Leaving Big Channels?
+title: "Why Popular Car YouTube Hosts Are Leaving Big Channels"
 postSlug: car-youtubers
 featured: false
 draft: false
 tags:
   - YouTube
   - Cars
-description: There has been a trend in the past few years of former hosts at big car Youtube channels leaving to start their own ventures. Car Throttle and Donut Media lost some of their hosts.
+description: "Hosts from Donut Media, Car Throttle and other big car YouTube channels keep going solo. Creative freedom, personal brands and money: here is why they leave."
 ---
 
 ## Shift in automotive YouTube space

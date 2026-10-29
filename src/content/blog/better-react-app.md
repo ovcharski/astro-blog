@@ -11,7 +11,7 @@ tags:
   - frontend
   - react
 ogImage: "/images/better-react-app.png"
-description: Is Create React App the best way to start with Ract?
+description: "Is Create React App still the best way to start with React? Probably not. A quick tour of faster options: Vite, Nx, Next.js, Remix, Gatsby and Astro."
 ---
 
 ## Video

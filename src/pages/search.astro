@@ -18,7 +18,11 @@ const searchList = posts.map(({ data }) => ({
 }));
 ---
 
-<Layout title={`Search | ${SITE.title}`}>
+<Layout
+  title={`Search | ${SITE.title}`}
+  description={`Search every post on ${SITE.author}'s blog by title or description: Playwright, testing tools, JavaScript, Raspberry Pi, HTC, GPUs and more.`}
+  noindex
+>
   <Header activeNav="search" />
   <Main pageTitle="Search" pageDesc="Search any article ...">
     <SearchComponent client:load searchList={searchList} />

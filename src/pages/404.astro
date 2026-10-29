@@ -6,7 +6,10 @@ import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 ---
 
-<Layout title={`404 Not Found | ${SITE.title}`}>
+<Layout
+  title={`404 Not Found | ${SITE.title}`}
+  description="This page doesn't exist, or it wandered off somewhere. Head back home, browse all the posts, or search the blog to find what you were after."
+>
   <Header />
 
   <main id="main-content">
@@ -14,12 +17,26 @@ import LinkButton from "@components/LinkButton.astro";
       <h1 aria-label="404 Not Found">404</h1>
       <span aria-hidden="true">¯\_(ツ)_/¯</span>
       <p>Page Not Found</p>
-      <LinkButton
-        href="/"
-        className="my-6 text-lg underline decoration-dashed underline-offset-8"
-      >
-        Go back home
-      </LinkButton>
+      <div class="not-found-links">
+        <LinkButton
+          href="/"
+          className="text-lg underline decoration-dashed underline-offset-8"
+        >
+          Go back home
+        </LinkButton>
+        <LinkButton
+          href="/posts/"
+          className="text-lg underline decoration-dashed underline-offset-8"
+        >
+          All posts
+        </LinkButton>
+        <LinkButton
+          href="/search/"
+          className="text-lg underline decoration-dashed underline-offset-8"
+        >
+          Search
+        </LinkButton>
+      </div>
     </div>
   </main>
 
@@ -38,5 +55,8 @@ import LinkButton from "@components/LinkButton.astro";
   }
   .not-found-wrapper p {
     @apply mt-4 text-2xl sm:text-3xl;
+  }
+  .not-found-links {
+    @apply my-6 flex flex-wrap justify-center gap-x-6 gap-y-2;
   }
 </style>

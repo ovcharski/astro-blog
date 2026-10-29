@@ -8,7 +8,7 @@ import { makePost } from "@utils/testFixtures";
 const posts = loadRealPosts().map(({ data }) => makePost(data));
 
 // The URLs src/pages/tags/[tag].astro generates.
-const tagPages = new Set(getUniqueTags(posts).map(tag => `/tags/${tag}`));
+const tagPages = new Set(getUniqueTags(posts).map(tag => `/tags/${tag}/`));
 
 const publishedTags = [
   ...new Set(posts.filter(({ data }) => !data.draft).flatMap(p => p.data.tags)),
@@ -39,7 +39,7 @@ describe("Tag", () => {
     "links %j to its slugified tag page",
     async name => {
       const page = getUniqueTags([makePost({ title: "x", tags: [name] })])[0];
-      expect(await renderHref(name)).toBe(`/tags/${page}`);
+      expect(await renderHref(name)).toBe(`/tags/${page}/`);
     }
   );
 });

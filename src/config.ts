@@ -3,8 +3,9 @@ import type { SocialObjects } from "./types";
 export const SITE = {
   website: "https://ovcharski.com/",
   author: "Nikola Ovcharski",
-  desc: "A dev blog and portfolio.",
+  desc: "Nikola Ovcharski's dev blog: QA automation, Playwright and testing tools, plus Raspberry Pi tinkering, old gadgets and the odd car rabbit hole.",
   title: "Nikola Ovcharski",
+  homeTitle: "Nikola Ovcharski – QA Automation, Playwright & Dev Notes",
   ogImage: "NikolaOvcharski.jpg",
   lightAndDarkMode: false,
   postPerPage: 10,
@@ -32,7 +33,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "LinkedIn",
-    href: "https://bg.linkedin.com/in/nikola-ovcharski-46225718",
+    href: "https://www.linkedin.com/in/nikola-ovcharski/",
     linkTitle: `${SITE.title} on LinkedIn`,
     active: true,
   },

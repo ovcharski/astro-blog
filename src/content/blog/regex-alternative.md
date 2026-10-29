@@ -8,7 +8,7 @@ draft: false
 tags:
   - Regex
 ogImage: "images/RegExAlternative.jpg"
-description: Regex does a very useful job, but it's not easy to read.
+description: "Regex does a useful job, but good luck reading it later. magic-regexp is a compiled-away, type-safe and readable alternative for JavaScript and TypeScript."
 ---
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/X_k198mrGL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

@@ -9,12 +9,15 @@ import matomo from "@jop-software/astro-matomo";
 // https://astro.build/config
 export default defineConfig({
   site: "https://ovcharski.com/",
+  trailingSlash: "always",
   // Keep the pre-v7 whitespace behavior for inline elements in templates
   compressHTML: true,
   integrations: [
     react(),
     sitemap({
-      filter: page => !page.endsWith("/search/"),
+      // Individual tag pages are thin and noindexed; the /tags/ index stays
+      filter: page =>
+        !page.endsWith("/search/") && !/\/tags\/[^/]+\/$/.test(page),
     }),
     matomo({
       baseUrl: "https://ovcharski.com/analytics/",

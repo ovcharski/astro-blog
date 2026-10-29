@@ -10,7 +10,7 @@ tags:
   - Collection
   - GPU
 ogImage: "/images/gpu-collection-beginning.jpg"
-description: Sometime almost a year ago, I decided to start collecting old tech. And video cards are the most interesting to me.
+description: "Almost a year ago I started collecting old tech, and video cards turned out to be the most fun part. Here is how my retro GPU collection got started."
 ---
 
 ## Video

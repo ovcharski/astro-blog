@@ -11,7 +11,7 @@ tags:
   - javascript
   - automation
 ogImage: "/images/most-popular-testing-tools-2023.png"
-description: The State Of JavaScript is an annually survey to identify upcoming trends in the web development ecosystem in order to help developers make technological choices
+description: "The State of JS survey tracks web dev trends every year. Here is what it says about the testing tools developers use and stick with, from Jest to Playwright."
 ---
 
 ## Survey
@@ -22,7 +22,7 @@ It should also be taken as a snapshot of a specific subset of developers, and is
 
 ## Testing tools
 
-![Chart](/images/most-popular-testing-tools-2023.png)
+![State of JS retention chart for testing tools from 2016 to 2022, with Vitest, Testing Library and Playwright on top in 2022](../../assets/images/most-popular-testing-tools-2023.png)
 
 Top 13 results in [Testing category](https://2022.stateofjs.com/en-US/libraries/testing/):
 

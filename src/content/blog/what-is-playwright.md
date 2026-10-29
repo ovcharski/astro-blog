@@ -1,7 +1,7 @@
 ---
 author: Nikola Ovcharski
 pubDatetime: 2023-01-20T15:22:00Z
-title: What is Playwright
+title: "What Is Playwright? E2E Tests for Chromium, Firefox & WebKit"
 postSlug: what-is-playwright
 featured: false
 draft: false
@@ -12,14 +12,14 @@ tags:
   - typescript
   - automation
 ogImage: ""
-description: Playwright is a testing framework that lets you automate Chromium, Firefox, and WebKit with a single API. You can use it to write End-to-End (E2E) and Integration tests
+description: "Playwright is a testing framework that automates Chromium, Firefox and WebKit with a single API. Use it to write end-to-end (E2E) and integration tests."
 ---
 
 ## Playwright
 
 Playwright is a testing framework that lets you automate Chromium, Firefox, and WebKit with a single API. You can use it to write End-to-End (E2E) and Integration tests across all platforms. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation of Google Chrome for Android and Mobile Safari.
 
-![Playwright](/images/playwright-testing.png)
+![Playwright example.spec.ts test that opens playwright.dev, checks the Get Started link and clicks it](../../assets/images/playwright-testing.png)
 
 ## Table of contents
 

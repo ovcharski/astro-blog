@@ -5,6 +5,7 @@ import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import JsonLD from "@components/JsonLD.astro";
+import RelatedPosts from "@components/RelatedPosts.astro";
 import { SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
@@ -26,7 +27,14 @@ const ogUrl = new URL(
 ).href;
 ---
 
-<Layout title={title} author={author} description={description} ogImage={ogUrl}>
+<Layout
+  title={title}
+  author={author}
+  description={description}
+  ogImage={ogUrl}
+  ogType="article"
+  publishedTime={pubDatetime}
+>
   <JsonLD
     data={{
       "@context": "https://schema.org",
@@ -74,6 +82,8 @@ const ogUrl = new URL(
         <Tag name={tag} />
       ))}
     </ul>
+
+    <RelatedPosts post={post} />
   </main>
   <Footer />
 </Layout>
