@@ -9,7 +9,7 @@ tags:
   - flightradar24
   - raspberry pi
   - linux
-ogImage: "/images/RPi/FR24-Pi24.jpg"
+ogImage: "../../assets/images/RPi/FR24-Pi24.jpg"
 description: You can connect to Raspberry Pi from your PC via SSH (Secure Shell). All you need is the local IP address of the Raspberry.
 ---
 

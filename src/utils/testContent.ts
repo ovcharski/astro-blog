@@ -1,15 +1,19 @@
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { parse } from "yaml";
-import { blogSchema, type BlogFrontmatter } from "@content/_schemas";
+import * as z from "astro/zod";
+import { createBlogSchema } from "@content/_schemas";
 
 export const BLOG_DIR = path.join(process.cwd(), "src/content/blog");
 export const PUBLIC_DIR = path.join(process.cwd(), "public");
 
+// image() only exists inside Astro, so ogImage stays the path as written
+const rawBlogSchema = createBlogSchema(z.string());
+
 export type RealPost = {
   // Path relative to BLOG_DIR, with forward slashes
   file: string;
-  data: BlogFrontmatter;
+  data: z.infer<typeof rawBlogSchema>;
   body: string;
 };
 
@@ -33,7 +37,9 @@ export const loadRealPosts = (): RealPost[] =>
         file,
         // Astro's loader reads unquoted timestamps as Dates (YAML 1.1); the
         // yaml package only does so with the timestamp tag enabled.
-        data: blogSchema.parse(parse(match[1], { customTags: ["timestamp"] })),
+        data: rawBlogSchema.parse(
+          parse(match[1], { customTags: ["timestamp"] })
+        ),
         body: match[2],
       };
     });

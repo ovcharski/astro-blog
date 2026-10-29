@@ -7,7 +7,7 @@ featured: false
 draft: false
 tags:
   - Regex
-ogImage: "images/RegExAlternative.jpg"
+ogImage: "../../assets/images/RegExAlternative.jpg"
 description: "Regex does a useful job, but good luck reading it later. magic-regexp is a compiled-away, type-safe and readable alternative for JavaScript and TypeScript."
 ---
 

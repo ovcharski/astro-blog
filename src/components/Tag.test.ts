@@ -5,7 +5,9 @@ import getUniqueTags from "@utils/getUniqueTags";
 import { loadRealPosts } from "@utils/testContent";
 import { makePost } from "@utils/testFixtures";
 
-const posts = loadRealPosts().map(({ data }) => makePost(data));
+const posts = loadRealPosts().map(({ data: { title, tags, draft } }) =>
+  makePost({ title, tags, draft })
+);
 
 // The URLs src/pages/tags/[tag].astro generates.
 const tagPages = new Set(getUniqueTags(posts).map(tag => `/tags/${tag}/`));

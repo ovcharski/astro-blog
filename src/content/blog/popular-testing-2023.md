@@ -10,7 +10,7 @@ tags:
   - typescript
   - javascript
   - automation
-ogImage: "/images/most-popular-testing-tools-2023.png"
+ogImage: "../../assets/images/most-popular-testing-tools-2023.png"
 description: "The State of JS survey tracks web dev trends every year. Here is what it says about the testing tools developers use and stick with, from Jest to Playwright."
 ---
 

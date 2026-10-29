@@ -11,7 +11,6 @@ tags:
   - javascript
   - typescript
   - automation
-ogImage: ""
 description: "Playwright is a testing framework that automates Chromium, Firefox and WebKit with a single API. Use it to write end-to-end (E2E) and integration tests."
 ---
 

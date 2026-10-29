@@ -9,7 +9,7 @@ tags:
   - frontend
   - javascript
   - typescript
-ogImage: "images/JavaScript-Frameworks-2023.jpg"
+ogImage: "../../assets/images/JavaScript-Frameworks-2023.jpg"
 description: "From plain JavaScript and jQuery to AngularJS, React, Angular and Vue: a quick look back at JS frameworks, where they stand today and where they are heading."
 ---
 
