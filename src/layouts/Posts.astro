@@ -21,11 +21,13 @@ const description = `Every post on the blog, newest first: Playwright and testin
   pageNum > 1 ? ` Page ${pageNum}.` : ""
 }`;
 
+const title = `Posts${pageNum > 1 ? ` - Page ${pageNum}` : ""} | ${SITE.title}`;
+
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
 ---
 
-<Layout title={`Posts | ${SITE.title}`} description={description}>
+<Layout title={title} description={description}>
   <Header activeNav="posts" />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
     <ul>

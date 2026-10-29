@@ -13,9 +13,10 @@ import slugify from "@utils/slugify";
 
 export interface Props {
   post: CollectionEntry<"blog">;
+  sortedPosts: CollectionEntry<"blog">[];
 }
 
-const { post } = Astro.props;
+const { post, sortedPosts } = Astro.props;
 
 const { title, author, description, ogImage, pubDatetime, tags } = post.data;
 
@@ -83,7 +84,7 @@ const ogUrl = new URL(
       ))}
     </ul>
 
-    <RelatedPosts post={post} />
+    <RelatedPosts post={post} sortedPosts={sortedPosts} />
   </main>
   <Footer />
 </Layout>
