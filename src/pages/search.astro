@@ -10,11 +10,12 @@ import SearchComponent from "@components/Search";
 // Retrieve all articles
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 
-// List of items to search in
+// List of items to search in. ogImage is left out: the island doesn't use it,
+// and serializing its metadata would make Astro ship the original image file.
 const searchList = posts.map(({ data }) => ({
   title: data.title,
   description: data.description,
-  data,
+  data: { ...data, ogImage: undefined },
 }));
 ---
 

@@ -21,12 +21,13 @@ const missingFiles = (srcs: string[], resolve: (src: string) => string) =>
 
 const inPublic = (src: string) => path.join(PUBLIC_DIR, src);
 
-// In a post body, root-relative paths are served from public/ and relative
-// ones are optimized assets resolved against the post file, as Astro does.
+// Optimized assets are resolved against the post file, as Astro does.
+const nextToPost = (file: string) => (src: string) =>
+  path.join(BLOG_DIR, path.dirname(file), src);
+
+// In a post body, root-relative paths are served from public/.
 const inBody = (file: string) => (src: string) =>
-  src.startsWith("/")
-    ? inPublic(src)
-    : path.join(BLOG_DIR, path.dirname(file), src);
+  src.startsWith("/") ? inPublic(src) : nextToPost(file)(src);
 
 describe("blog content", () => {
   it("finds the posts", () => {
@@ -34,10 +35,12 @@ describe("blog content", () => {
   });
 
   it.each(posts.map(post => [post.file, post]))(
-    "%s: ogImage exists in public/",
+    "%s: ogImage exists next to the post",
     (_, post) => {
       const { ogImage } = post.data;
-      expect(missingFiles(ogImage ? [ogImage] : [], inPublic)).toEqual([]);
+      expect(
+        missingFiles(ogImage ? [ogImage] : [], nextToPost(post.file))
+      ).toEqual([]);
     }
   );
 

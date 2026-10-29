@@ -31,7 +31,7 @@ npm run sync         # Generate TypeScript types for Astro modules
 
 ### Content Architecture
 
-**Content Collections**: Blog posts are managed through Astro's Content Layer API. The collection is defined in `src/content.config.ts` with a `glob()` loader over `src/content/blog/`. The schema is defined in `src/content/_schemas.ts` using Zod:
+**Content Collections**: Blog posts are managed through Astro's Content Layer API. The collection is defined in `src/content.config.ts` with a `glob()` loader over `src/content/blog/`. The schema is defined in `src/content/_schemas.ts` using Zod. `blogSchema` is a function of Astro's `SchemaContext` so `ogImage` can use `image()`; `createBlogSchema` takes the `ogImage` validator so tests (which run outside Astro) can pass `z.string()` instead:
 
 ```typescript
 {
@@ -42,7 +42,7 @@ npm run sync         # Generate TypeScript types for Astro modules
   featured: boolean (optional)
   draft: boolean (optional)
   tags: string[] (default: ["others"])
-  ogImage: string (optional)
+  ogImage: image() (optional; path relative to the post, e.g. "../../assets/images/x.jpg")
   description: string
 }
 ```
@@ -111,7 +111,7 @@ import getSortedPosts from "@utils/getSortedPosts";
 
 ### Dynamic Features
 
-**OG Image Generation**: Posts without a custom `ogImage` get dynamic PNG images (1200×630) generated at build time via `posts/[slug].png.ts`, rendered with Satori (IBM Plex Mono font) and rasterized with @resvg/resvg-js.
+**OG Image Generation**: A custom `ogImage` lives in `src/assets/` (not `public/`) and `PostDetails.astro` emits it via `getImage()` as a JPG capped at 1200px wide. Posts without one get dynamic PNG images (1200×630) generated at build time via `posts/[slug].png.ts`, rendered with Satori (IBM Plex Mono font) and rasterized with @resvg/resvg-js.
 
 **Search**: Client-side fuzzy search implemented with FuseJS in `Search.tsx`, searching across post titles, descriptions, and content.
 

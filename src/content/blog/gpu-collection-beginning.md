@@ -9,7 +9,7 @@ tags:
   - PC_hardware
   - Collection
   - GPU
-ogImage: "/images/gpu-collection-beginning.jpg"
+ogImage: "../../assets/images/gpu-collection-beginning.jpg"
 description: "Almost a year ago I started collecting old tech, and video cards turned out to be the most fun part. Here is how my retro GPU collection got started."
 ---
 

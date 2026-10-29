@@ -9,6 +9,7 @@ import RelatedPosts from "@components/RelatedPosts.astro";
 import { SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
+import { getImage } from "astro:assets";
 import slugify from "@utils/slugify";
 
 export interface Props {
@@ -22,10 +23,13 @@ const { title, author, description, ogImage, pubDatetime, tags } = post.data;
 
 const { Content } = await render(post);
 
-const ogUrl = new URL(
-  ogImage ? ogImage : `/posts/${slugify(post.data)}.png`,
-  Astro.url.origin
-).href;
+// Social crawlers don't all read WebP, so the OG image stays a JPG. Width is
+// capped at 1200px (the OG card size); smaller images are never upscaled.
+const ogSrc = ogImage
+  ? (await getImage({ src: ogImage, width: 1200, format: "jpg" })).src
+  : `/posts/${slugify(post.data)}.png`;
+
+const ogUrl = new URL(ogSrc, Astro.url.origin).href;
 ---
 
 <Layout
