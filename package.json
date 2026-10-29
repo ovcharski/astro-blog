@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "@astrojs/react": "^6.0.1",
+    "@astrojs/react": "^7.1.0",
     "@astrojs/sitemap": "^3.7.0",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/typography": "^0.5.16",
@@ -45,6 +45,7 @@
     "eslint-plugin-astro": "^3.2.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.8",
+    "oxc-transform-react": "^0.145.0",
     "prettier": "^3.5.0",
     "prettier-plugin-astro": "^1.1.2",
     "prettier-plugin-tailwindcss": "^0.8.0",
