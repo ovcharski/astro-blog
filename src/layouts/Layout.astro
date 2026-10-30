@@ -109,6 +109,14 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     />
 
     <script is:inline src="/toggle-theme.js"></script>
+
+    <!-- Umami analytics -->
+    <script
+      is:inline
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="bee0052e-1ba5-46d5-aa37-c3a188482ad4"
+    ></script>
   </head>
   <body>
     <slot />
