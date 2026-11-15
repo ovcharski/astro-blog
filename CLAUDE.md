@@ -15,10 +15,24 @@ npm run lint         # Run ESLint
 npm run format       # Format code with Prettier
 npm run format:check # Check code formatting without changes
 npm run sync         # Generate TypeScript types for Astro modules
+npx astro check      # Type-check .astro and .ts files
+npm test             # Run Vitest once (npm run test:watch for watch mode)
 
 # Git Hooks
 # Husky is configured with lint-staged to auto-format on commit
 ```
+
+## Working Rules
+
+**Verify before claiming done.** CI (`.github/workflows/ci.yml`) runs `format:check` → `lint` → `astro check` → `test` → `build`. Run the steps relevant to the change (all of them for anything touching `src/` code or config) and report the actual result. Don't say "should work". If a step fails, say so and show the output.
+
+**Simplest working change.** Before writing new code, reach for, in order: an existing helper in `src/utils/`, an Astro/Tailwind built-in, then an already-installed dependency. Don't add abstractions, options, or files the task doesn't need. Keep edits surgical: don't reformat, rename, or "tidy" unrelated code in the same change.
+
+**Tests for logic.** Utilities and schema changes get Vitest coverage next to the source (`*.test.ts`; shared fixtures in `src/utils/testFixtures.ts` and `testContent.ts`). For a bug in tested code, write the failing test first, then fix.
+
+**When verification fails, stop and diagnose.** Find the root cause, form one hypothesis, make one minimal change, re-run. Don't stack speculative fixes.
+
+**Ask first** before adding or upgrading dependencies, changing the content schema in a way that would invalidate existing posts, changing URLs/slugs or the RSS feed shape (breaks inbound links and subscribers), or editing published posts' content beyond what was asked.
 
 ## Architecture Overview
 
